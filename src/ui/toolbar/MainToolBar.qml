@@ -92,7 +92,6 @@ Rectangle {
                 anchors.bottom:     parent.bottom
                 exclusiveGroup:     mainActionGroup
                 source:             "/res/QGCLogoWhite"
-                logo:               true
                 onClicked:          toolBar.showSettingsView()
                 visible:            !QGroundControl.corePlugin.options.combineSettingsAndSetup
             }

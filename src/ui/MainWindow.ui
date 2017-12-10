@@ -65,7 +65,7 @@
    </widget>
    <widget class="QMenu" name="menuWidgets">
     <property name="title">
-     <string>Widgets</string>
+     <string>Tools</string>
     </property>
    </widget>
    <addaction name="menuFile"/>
