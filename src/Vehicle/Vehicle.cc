@@ -769,8 +769,14 @@ void Vehicle::_handleGlobalPositionInt(mavlink_message_t& message)
     if (globalPositionInt.lat == 0 && globalPositionInt.lon == 0) {
         return;
     }
-
-    _globalPositionIntMessageAvailable = true;
+   
+    if (!_globalPositionIntMessageAvailable) {
+        // We are transitioning to the armed state, begin tracking trajectory points for the map
+        _mapTrajectoryStart();
+        _clearCameraTriggerPoints();
+        
+        _globalPositionIntMessageAvailable = true;
+    }
     //-- Set these here and emit a single signal instead of 3 for the same variable (_coordinate)
     _coordinate.setLatitude(globalPositionInt.lat  / (double)1E7);
     _coordinate.setLongitude(globalPositionInt.lon / (double)1E7);

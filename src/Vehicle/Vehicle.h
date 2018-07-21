@@ -1013,7 +1013,7 @@ private:
     QmlObjectListModel  _mapTrajectoryList;
     QGeoCoordinate      _mapTrajectoryLastCoordinate;
     bool                _mapTrajectoryHaveFirstCoordinate;
-    static const int    _mapTrajectoryMsecsBetweenPoints = 1000;
+    static const int    _mapTrajectoryMsecsBetweenPoints = 100;
 
     QmlObjectListModel  _cameraTriggerPoints;
 
