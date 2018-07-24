@@ -62,27 +62,27 @@ const QVariantList& PX4AutoPilotPlugin::vehicleComponents(void)
     if (_components.count() == 0 && !_incorrectParameterVersion) {
         if (_vehicle) {
             if (_vehicle->parameterManager()->parametersReady()) {
-                _airframeComponent = new AirframeComponent(_vehicle, this);
-                _airframeComponent->setupTriggerSignals();
-                _components.append(QVariant::fromValue((VehicleComponent*)_airframeComponent));
+                // _airframeComponent = new AirframeComponent(_vehicle, this);
+                // _airframeComponent->setupTriggerSignals();
+                // _components.append(QVariant::fromValue((VehicleComponent*)_airframeComponent));
 
-                _radioComponent = new PX4RadioComponent(_vehicle, this);
-                _radioComponent->setupTriggerSignals();
-                _components.append(QVariant::fromValue((VehicleComponent*)_radioComponent));
+                // _radioComponent = new PX4RadioComponent(_vehicle, this);
+                // _radioComponent->setupTriggerSignals();
+                // _components.append(QVariant::fromValue((VehicleComponent*)_radioComponent));
 
-                if (!_vehicle->hilMode()) {
-                    _sensorsComponent = new SensorsComponent(_vehicle, this);
-                    _sensorsComponent->setupTriggerSignals();
-                    _components.append(QVariant::fromValue((VehicleComponent*)_sensorsComponent));
-                }
+                // if (!_vehicle->hilMode()) {
+                //     _sensorsComponent = new SensorsComponent(_vehicle, this);
+                //     _sensorsComponent->setupTriggerSignals();
+                //     _components.append(QVariant::fromValue((VehicleComponent*)_sensorsComponent));
+                // }
 
-                _flightModesComponent = new FlightModesComponent(_vehicle, this);
-                _flightModesComponent->setupTriggerSignals();
-                _components.append(QVariant::fromValue((VehicleComponent*)_flightModesComponent));
+                // _flightModesComponent = new FlightModesComponent(_vehicle, this);
+                // _flightModesComponent->setupTriggerSignals();
+                // _components.append(QVariant::fromValue((VehicleComponent*)_flightModesComponent));
 
-                _powerComponent = new PowerComponent(_vehicle, this);
-                _powerComponent->setupTriggerSignals();
-                _components.append(QVariant::fromValue((VehicleComponent*)_powerComponent));
+                // _powerComponent = new PowerComponent(_vehicle, this);
+                // _powerComponent->setupTriggerSignals();
+                // _components.append(QVariant::fromValue((VehicleComponent*)_powerComponent));
 
 #if 0
                 // Coming soon
@@ -91,36 +91,36 @@ const QVariantList& PX4AutoPilotPlugin::vehicleComponents(void)
                 _components.append(QVariant::fromValue((VehicleComponent*)_motorComponent));
 #endif
 
-                _safetyComponent = new SafetyComponent(_vehicle, this);
-                _safetyComponent->setupTriggerSignals();
-                _components.append(QVariant::fromValue((VehicleComponent*)_safetyComponent));
+                // _safetyComponent = new SafetyComponent(_vehicle, this);
+                // _safetyComponent->setupTriggerSignals();
+                // _components.append(QVariant::fromValue((VehicleComponent*)_safetyComponent));
 
-                _tuningComponent = new PX4TuningComponent(_vehicle, this);
-                _tuningComponent->setupTriggerSignals();
-                _components.append(QVariant::fromValue((VehicleComponent*)_tuningComponent));
+                // _tuningComponent = new PX4TuningComponent(_vehicle, this);
+                // _tuningComponent->setupTriggerSignals();
+                // _components.append(QVariant::fromValue((VehicleComponent*)_tuningComponent));
 
-                //-- Is there support for cameras?
-                if(_vehicle->parameterManager()->parameterExists(_vehicle->id(), "TRIG_MODE")) {
-                    _cameraComponent = new CameraComponent(_vehicle, this);
-                    _cameraComponent->setupTriggerSignals();
-                    _components.append(QVariant::fromValue((VehicleComponent*)_cameraComponent));
-                }
+                // //-- Is there support for cameras?
+                // if(_vehicle->parameterManager()->parameterExists(_vehicle->id(), "TRIG_MODE")) {
+                //     _cameraComponent = new CameraComponent(_vehicle, this);
+                //     _cameraComponent->setupTriggerSignals();
+                //     _components.append(QVariant::fromValue((VehicleComponent*)_cameraComponent));
+                // }
 
-                //-- Is there an ESP8266 Connected?
-                if(_vehicle->parameterManager()->parameterExists(MAV_COMP_ID_UDP_BRIDGE, "SW_VER")) {
-                    _esp8266Component = new ESP8266Component(_vehicle, this);
-                    _esp8266Component->setupTriggerSignals();
-                    _components.append(QVariant::fromValue((VehicleComponent*)_esp8266Component));
-                }
+                // //-- Is there an ESP8266 Connected?
+                // if(_vehicle->parameterManager()->parameterExists(MAV_COMP_ID_UDP_BRIDGE, "SW_VER")) {
+                //     _esp8266Component = new ESP8266Component(_vehicle, this);
+                //     _esp8266Component->setupTriggerSignals();
+                //     _components.append(QVariant::fromValue((VehicleComponent*)_esp8266Component));
+                // }
             } else {
                 qWarning() << "Call to vehicleCompenents prior to parametersReady";
             }
 
-            if(_vehicle->parameterManager()->parameterExists(_vehicle->id(), "SLNK_RADIO_CHAN")) {
-                _syslinkComponent = new SyslinkComponent(_vehicle, this);
-                _syslinkComponent->setupTriggerSignals();
-                _components.append(QVariant::fromValue((VehicleComponent*)_syslinkComponent));
-            }
+            // if(_vehicle->parameterManager()->parameterExists(_vehicle->id(), "SLNK_RADIO_CHAN")) {
+            //     _syslinkComponent = new SyslinkComponent(_vehicle, this);
+            //     _syslinkComponent->setupTriggerSignals();
+            //     _components.append(QVariant::fromValue((VehicleComponent*)_syslinkComponent));
+            // }
         } else {
             qWarning() << "Internal error";
         }

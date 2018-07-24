@@ -93,7 +93,7 @@ Rectangle {
                 exclusiveGroup:     mainActionGroup
                 source:             "/res/QGCLogoWhite"
                 onClicked:          toolBar.showSettingsView()
-                visible:            !QGroundControl.corePlugin.options.combineSettingsAndSetup
+                visible:            false
             }
 
             QGCToolBarButton {
@@ -112,6 +112,7 @@ Rectangle {
                 exclusiveGroup:     mainActionGroup
                 source:             "/qmlimages/Plan.svg"
                 onClicked:          toolBar.showPlanView()
+                visible:            false
             }
 
             QGCToolBarButton {

@@ -23,8 +23,8 @@ import QGroundControl.Controllers   1.0
 AnalyzePage {
     id:              mavlinkConsolePage
     pageComponent:   pageComponent
-    pageName:        qsTr("Mavlink Console")
-    pageDescription: qsTr("Mavlink Console provides a connection to the vehicle's system shell.")
+    pageName:        qsTr("Ifs Console")
+    pageDescription: qsTr("Ifs Console provides a connection to the IFS2000's system shell.")
 
     property bool loaded: false
 

@@ -104,13 +104,8 @@ Rectangle {
                         pageSource:         "LogDownloadPage.qml"
                     }
                     ListElement {
-                        buttonImage:        "/qmlimages/GeoTagIcon"
-                        buttonText:         qsTr("GeoTag Images")
-                        pageSource:         "GeoTagPage.qml"
-                    }
-                    ListElement {
                         buttonImage:        "/qmlimages/MavlinkConsoleIcon"
-                        buttonText:         qsTr("Mavlink Console")
+                        buttonText:         qsTr("Ifs Console")
                         pageSource:         "MavlinkConsolePage.qml"
                     }
                 }

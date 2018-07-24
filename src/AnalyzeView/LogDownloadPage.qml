@@ -22,7 +22,7 @@ AnalyzePage {
     id:                 logDownloadPage
     pageComponent:      pageComponent
     pageName:           qsTr("Log Download")
-    pageDescription:    qsTr("Log Download allows you to download binary log files from your vehicle. Click Refresh to get list of available logs.")
+    pageDescription:    qsTr("Log Download allows you to download binary log files from your IFS2000. Click Refresh to get list of available logs.")
 
     property real _margin:          ScreenTools.defaultFontPixelWidth
     property real _butttonWidth:    ScreenTools.defaultFontPixelWidth * 10

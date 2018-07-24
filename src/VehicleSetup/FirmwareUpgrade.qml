@@ -44,12 +44,12 @@ SetupPage {
 
             readonly property string highlightPrefix:   "<font color=\"" + qgcPal.warningText + "\">"
             readonly property string highlightSuffix:   "</font>"
-            readonly property string welcomeText:       qsTr("%1 can upgrade the firmware on Pixhawk devices, SiK Radios and PX4 Flow Smart Cameras.").arg(QGroundControl.appName)
+            readonly property string welcomeText:       qsTr("%1 can upgrade the firmware on IFS2000 devices.").arg(QGroundControl.appName)
             readonly property string plugInText:        "<big>" + highlightPrefix + "Plug in your device" + highlightSuffix + " via USB to " + highlightPrefix + "start" + highlightSuffix + " firmware upgrade.</big>"
             readonly property string flashFailText:     "If upgrade failed, make sure to connect " + highlightPrefix + "directly" + highlightSuffix + " to a powered USB port on your computer, not through a USB hub. " +
                                                         "Also make sure you are only powered via USB " + highlightPrefix + "not battery" + highlightSuffix + "."
-            readonly property string qgcUnplugText1:    qsTr("All %1 connections to vehicles must be ").arg(QGroundControl.appName) + highlightPrefix + " disconnected " + highlightSuffix + "prior to firmware upgrade."
-            readonly property string qgcUnplugText2:    highlightPrefix + "<big>Please unplug your Pixhawk and/or Radio from USB.</big>" + highlightSuffix
+            readonly property string qgcUnplugText1:    qsTr("All %1 connections to IFS2000 must be ").arg(QGroundControl.appName) + highlightPrefix + " disconnected " + highlightSuffix + "prior to firmware upgrade."
+            readonly property string qgcUnplugText2:    highlightPrefix + "<big>Please unplug your IFS2000 from USB.</big>" + highlightSuffix
 
             readonly property int _defaultFimwareTypePX4:   12
             readonly property int _defaultFimwareTypeAPM:   3
@@ -115,7 +115,7 @@ SetupPage {
                         QGroundControl.multiVehicleManager.activeVehicle.autoDisconnect = true
                     } else {
                         // We end up here when we detect a board plugged in after we've started upgrade
-                        statusTextArea.append(highlightPrefix + qsTr("Found device") + highlightSuffix + ": " + controller.boardType)
+                        statusTextArea.append(highlightPrefix + qsTr("Found device") + highlightSuffix + ": " + "IFS2000")
                         if (controller.pixhawkBoard || controller.px4FlowBoard) {
                             showDialog(pixhawkFirmwareSelectDialogComponent, title, qgcView.showDialogDefaultWidth, StandardButton.Ok | StandardButton.Cancel)
                         }
@@ -194,19 +194,6 @@ SetupPage {
 
                     ListModel {
                         id: firmwareTypeList
-
-                        ListElement {
-                            text:           qsTr("Standard Version (stable)")
-                            firmwareType:   FirmwareUpgradeController.StableFirmware
-                        }
-                        ListElement {
-                            text:           qsTr("Beta Testing (beta)")
-                            firmwareType:   FirmwareUpgradeController.BetaFirmware
-                        }
-                        ListElement {
-                            text:           qsTr("Developer Build (master)")
-                            firmwareType:   FirmwareUpgradeController.DeveloperFirmware
-                        }
                         ListElement {
                             text:           qsTr("Custom firmware file...")
                             firmwareType:   FirmwareUpgradeController.CustomFirmware
@@ -249,8 +236,8 @@ SetupPage {
                             text:       _singleFirmwareMode ? _singleFirmwareLabel : (px4Flow ? _px4FlowLabel : _pixhawkLabel)
 
                             readonly property string _px4FlowLabel:          qsTr("Detected PX4 Flow board. You can select from the following firmware:")
-                            readonly property string _pixhawkLabel:          qsTr("Detected Pixhawk board. You can select from the following flight stacks:")
-                            readonly property string _singleFirmwareLabel:   qsTr("Press Ok to upgrade your vehicle.")
+                            readonly property string _pixhawkLabel:          qsTr("Detected IFS2000. You can select from the following flight stacks:")
+                            readonly property string _singleFirmwareLabel:   qsTr("Press Ok to upgrade your IFS2000.")
                         }
 
                         function firmwareVersionChanged(model) {
@@ -276,7 +263,7 @@ SetupPage {
                             id:             px4FlightStack
                             exclusiveGroup: firmwareGroup
                             text:           qsTr("PX4 Flight Stack ")
-                            visible:        !_singleFirmwareMode && !px4Flow
+                            visible:        false
 
                             onClicked: {
                                 _defaultFirmwareFact.rawValue = _defaultFimwareTypePX4
@@ -288,7 +275,7 @@ SetupPage {
                             id:             apmFlightStack
                             exclusiveGroup: firmwareGroup
                             text:           qsTr("ArduPilot Flight Stack")
-                            visible:        !_singleFirmwareMode && !px4Flow
+                            visible:        false
 
                             onClicked: {
                                 _defaultFirmwareFact.rawValue = _defaultFimwareTypeAPM
@@ -340,7 +327,7 @@ SetupPage {
                             width:      parent.width
                             wrapMode:   Text.WordWrap
                             visible:    showFirmwareTypeSelection
-                            text:       px4Flow ? qsTr("Select which version of the firmware you would like to install:") : qsTr("Select which version of the above flight stack you would like to install:")
+                            text:       px4Flow ? qsTr("Select which version of the firmware you would like to install:") : qsTr("Select which version of the above IFS2000 stack you would like to install:")
                         }
 
                         QGCComboBox {
