@@ -8,7 +8,7 @@ import QGroundControl.ScreenTools   1.0
 
 Rectangle {
     id:     _root
-    height: pageFlickable.y + pageFlickable.height + _margins
+    height: 0.0
     color:  qgcPal.window
 
     property var    qgcView         ///< QGCView to use for showing dialogs
@@ -28,6 +28,7 @@ Rectangle {
         textRole:       "title"
         centeredLabel:  true
         pointSize:      ScreenTools.smallFontPointSize
+        visible:        false
 
         Image {
             anchors.leftMargin:     _margins

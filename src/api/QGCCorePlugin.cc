@@ -153,7 +153,7 @@ QVariantList& QGCCorePlugin::instrumentPages(void)
         _p->healthPageWidgetInfo = new QmlComponentInfo(tr("Health"), QUrl::fromUserInput("qrc:/qml/HealthPageWidget.qml"));
         _p->vibrationPageWidgetInfo = new QmlComponentInfo(tr("Vibration"), QUrl::fromUserInput("qrc:/qml/VibrationPageWidget.qml"));
 
-        _p->instrumentPageWidgetList.append(QVariant::fromValue(_p->valuesPageWidgetInfo));
+        // _p->instrumentPageWidgetList.append(QVariant::fromValue(_p->valuesPageWidgetInfo));
         // _p->instrumentPageWidgetList.append(QVariant::fromValue(_p->cameraPageWidgetInfo));
         // _p->instrumentPageWidgetList.append(QVariant::fromValue(_p->healthPageWidgetInfo));
         // _p->instrumentPageWidgetList.append(QVariant::fromValue(_p->vibrationPageWidgetInfo));
