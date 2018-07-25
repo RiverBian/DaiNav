@@ -232,7 +232,7 @@ QGCViewDialog {
                 wrapMode:   Text.WordWrap
                 text:       qsTr("Warning: Modifying values while vehicle is in flight can lead to vehicle instability and possible vehicle loss. ") +
                             qsTr("Make sure you know what you are doing and double-check your values before Save!")
-                visible:    fact.componentId != -1
+                visible:    false
             }
 
             QGCCheckBox {
@@ -244,7 +244,7 @@ QGCViewDialog {
             Row {
                 width:      parent.width
                 spacing:    ScreenTools.defaultFontPixelWidth / 2
-                visible:    showRCToParam || factCombo.visible || bitmaskColumn.visible
+                visible:    false
 
                 Rectangle {
                     height: 1

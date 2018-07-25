@@ -256,7 +256,7 @@ Set to 2 to use heading from motion capture</short_desc>
       <scope>modules/attitude_estimator_q</scope>
     </parameter>
   </group>
-  <group name="Battery Calibration">
+<!--   <group name="Battery Calibration">
     <parameter default="-1.0" name="BAT_A_PER_V" type="FLOAT">
       <short_desc>Battery current per volt (A/V)</short_desc>
       <long_desc>The voltage seen by the 3.3V ADC multiplied by this factor will determine the battery current. A value of -1 means to use the board default.</long_desc>
@@ -411,7 +411,7 @@ Set to 2 to use heading from motion capture</short_desc>
       <max>100000</max>
       <scope>modules/sensors</scope>
     </parameter>
-  </group>
+  </group> -->
   <group name="Camera Control">
     <parameter default="0" name="CAM_FBACK_MODE" type="INT32">
       <short_desc>Camera feedback mode</short_desc>
@@ -500,88 +500,7 @@ Set to 2 to use heading from motion capture</short_desc>
       </values>
     </parameter>
   </group>
-  <group name="Circuit Breaker">
-    <parameter default="0" name="CBRK_AIRSPD_CHK" type="INT32">
-      <short_desc>Circuit breaker for airspeed sensor</short_desc>
-      <long_desc>Setting this parameter to 162128 will disable the check for an airspeed sensor. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</long_desc>
-      <min>0</min>
-      <max>162128</max>
-      <reboot_required>true</reboot_required>
-      <scope>modules/systemlib</scope>
-    </parameter>
-    <parameter default="0" name="CBRK_BUZZER" type="INT32">
-      <short_desc>Circuit breaker for disabling buzzer</short_desc>
-      <long_desc>Setting this parameter to 782097 will disable the buzzer audio notification. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</long_desc>
-      <min>0</min>
-      <max>782097</max>
-      <reboot_required>true</reboot_required>
-      <scope>modules/systemlib</scope>
-    </parameter>
-    <parameter default="284953" name="CBRK_ENGINEFAIL" type="INT32">
-      <short_desc>Circuit breaker for engine failure detection</short_desc>
-      <long_desc>Setting this parameter to 284953 will disable the engine failure detection. If the aircraft is in engine failure mode the engine failure flag will be set to healthy WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</long_desc>
-      <min>0</min>
-      <max>284953</max>
-      <reboot_required>true</reboot_required>
-      <scope>modules/systemlib</scope>
-    </parameter>
-    <parameter default="121212" name="CBRK_FLIGHTTERM" type="INT32">
-      <short_desc>Circuit breaker for flight termination</short_desc>
-      <long_desc>Setting this parameter to 121212 will disable the flight termination action. --&gt; The IO driver will not do flight termination if requested by the FMU WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</long_desc>
-      <min>0</min>
-      <max>121212</max>
-      <reboot_required>true</reboot_required>
-      <scope>modules/systemlib</scope>
-    </parameter>
-    <parameter default="0" name="CBRK_GPSFAIL" type="INT32">
-      <short_desc>Circuit breaker for GPS failure detection</short_desc>
-      <long_desc>Setting this parameter to 240024 will disable the GPS failure detection. If this check is enabled, then the sensor check will fail if the GPS module is missing. It will also check for excessive signal noise on the GPS receiver and warn the user if detected. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</long_desc>
-      <min>0</min>
-      <max>240024</max>
-      <reboot_required>true</reboot_required>
-      <scope>modules/systemlib</scope>
-    </parameter>
-    <parameter default="0" name="CBRK_IO_SAFETY" type="INT32">
-      <short_desc>Circuit breaker for IO safety</short_desc>
-      <long_desc>Setting this parameter to 22027 will disable IO safety. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</long_desc>
-      <min>0</min>
-      <max>22027</max>
-      <reboot_required>true</reboot_required>
-      <scope>modules/systemlib</scope>
-    </parameter>
-    <parameter default="0" name="CBRK_RATE_CTRL" type="INT32">
-      <short_desc>Circuit breaker for rate controller output</short_desc>
-      <long_desc>Setting this parameter to 140253 will disable the rate controller uORB publication. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</long_desc>
-      <min>0</min>
-      <max>140253</max>
-      <reboot_required>true</reboot_required>
-      <scope>modules/systemlib</scope>
-    </parameter>
-    <parameter default="0" name="CBRK_SUPPLY_CHK" type="INT32">
-      <short_desc>Circuit breaker for power supply check</short_desc>
-      <long_desc>Setting this parameter to 894281 will disable the power valid checks in the commander. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</long_desc>
-      <min>0</min>
-      <max>894281</max>
-      <reboot_required>true</reboot_required>
-      <scope>modules/systemlib</scope>
-    </parameter>
-    <parameter default="0" name="CBRK_USB_CHK" type="INT32">
-      <short_desc>Circuit breaker for USB link check</short_desc>
-      <long_desc>Setting this parameter to 197848 will disable the USB connected checks in the commander. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</long_desc>
-      <min>0</min>
-      <max>197848</max>
-      <reboot_required>true</reboot_required>
-      <scope>modules/systemlib</scope>
-    </parameter>
-    <parameter default="0" name="CBRK_VELPOSERR" type="INT32">
-      <short_desc>Circuit breaker for position error check</short_desc>
-      <long_desc>Setting this parameter to 201607 will disable the position and velocity accuracy checks in the commander. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</long_desc>
-      <min>0</min>
-      <max>201607</max>
-      <reboot_required>true</reboot_required>
-      <scope>modules/systemlib</scope>
-    </parameter>
-  </group>
+
   <group name="Commander">
     <parameter default="256010" name="COM_ARM_AUTH" type="INT32">
       <short_desc>Arm authorization parameters, this uint32_t will be splitted between starting from the LSB:
@@ -1083,7 +1002,7 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</short_desc>
       <scope>modules/navigator</scope>
     </parameter>
   </group>
-  <group name="EKF2">
+  <!-- <group name="EKF2">
     <parameter default="0.2" name="EKF2_ABIAS_INIT" type="FLOAT">
       <short_desc>1-sigma IMU accelerometer switch-on bias</short_desc>
       <min>0.0</min>
@@ -1919,7 +1838,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
       <decimal>3</decimal>
       <scope>modules/ekf2</scope>
     </parameter>
-  </group>
+  </group> -->
   <group name="FW Attitude Control">
     <parameter default="90" name="FW_ACRO_X_MAX" type="FLOAT">
       <short_desc>Acro body x max rate</short_desc>
@@ -3018,7 +2937,7 @@ but also ignore less noise</short_desc>
       <scope>modules/gnd_pos_control</scope>
     </parameter>
   </group>
-  <group name="GPS">
+<!--   <group name="GPS">
     <parameter default="0" name="GPS_DUMP_COMM" type="INT32">
       <short_desc>Dump GPS communication to a file</short_desc>
       <long_desc>If this is set to 1, all GPS communication data will be published via uORB, and written to the log file as gps_dump message.</long_desc>
@@ -3045,7 +2964,7 @@ but also ignore less noise</short_desc>
         <value code="8">airborne with &lt;4g acceleration</value>
       </values>
     </parameter>
-  </group>
+  </group> -->
   <group name="GPS Failure Navigation">
     <parameter default="0.0" name="NAV_GPSF_LT" type="FLOAT">
       <short_desc>Loiter time</short_desc>
@@ -3161,7 +3080,7 @@ but also ignore less noise</short_desc>
       <scope>drivers/iridiumsbd</scope>
     </parameter>
   </group>
-  <group name="Land Detector">
+<!--   <group name="Land Detector">
     <parameter default="8.00" name="LNDFW_AIRSPD_MAX" type="FLOAT">
       <short_desc>Airspeed max</short_desc>
       <long_desc>Maximum airspeed allowed in the landed state (m/s)</long_desc>
@@ -3266,7 +3185,7 @@ but also ignore less noise</short_desc>
       <min>0</min>
       <scope>modules/land_detector</scope>
     </parameter>
-  </group>
+  </group> -->
   <group name="Local Position Estimator">
     <parameter default="0.012" name="LPE_ACC_XY" type="FLOAT">
       <short_desc>Accelerometer xy noise density</short_desc>
@@ -3587,7 +3506,7 @@ Used to calculate increased terrain random walk nosie due to movement</short_des
       <scope>modules/local_position_estimator</scope>
     </parameter>
   </group>
-  <group name="MAVLink">
+<!--   <group name="MAVLink">
     <parameter default="0" name="MAV_BROADCAST" type="INT32">
       <short_desc>Broadcast heartbeats on local network</short_desc>
       <long_desc>This allows a ground control station to automatically find the drone on the local network.</long_desc>
@@ -3651,7 +3570,7 @@ Used to calculate increased terrain random walk nosie due to movement</short_des
       <boolean />
       <scope>modules/mavlink</scope>
     </parameter>
-  </group>
+  </group> -->
   <group name="MKBLCTRL Testmode">
     <parameter default="0" name="MKBLCTRL_TEST" type="INT32">
       <short_desc>Test mode (Identify) of MKBLCTRL Driver</short_desc>
@@ -4967,7 +4886,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</short_desc>
       <scope>examples/mc_pos_control_multiplatform</scope>
     </parameter>
   </group>
-  <group name="PWM Outputs">
+<!--   <group name="PWM Outputs">
     <parameter default="0.0" name="MOT_SLEW_MAX" type="FLOAT">
       <short_desc>Minimum motor rise time (slew rate limit)</short_desc>
       <long_desc>Minimum time allowed for the motor input signal to pass through a range of 1000 PWM units. A value x means that the motor signal can only go from 1000 to 2000 PWM in maximum x seconds. Zero means that slew rate limiting is disabled.</long_desc>
@@ -5387,7 +5306,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</short_desc>
       <max>1.0</max>
       <scope>drivers/px4fmu</scope>
     </parameter>
-  </group>
+  </group> -->
   <group name="Payload drop">
     <parameter default="0.03" name="BD_GPROPERTIES" type="FLOAT">
       <short_desc>Ground drag property</short_desc>
@@ -5796,7 +5715,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</short_desc>
       <scope>modules/position_estimator_inav</scope>
     </parameter>
   </group>
-  <group name="Radio Calibration">
+<!--   <group name="Radio Calibration">
     <parameter default="0.0" name="RC10_DZ" type="FLOAT">
       <short_desc>RC channel 10 dead zone</short_desc>
       <long_desc>The +- range of this value around the trim value will be considered as zero.</long_desc>
@@ -6961,7 +6880,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</short_desc>
       <increment>0.01</increment>
       <scope>modules/commander</scope>
     </parameter>
-  </group>
+  </group> -->
   <group name="Radio Signal Loss">
     <parameter default="120.0" name="NAV_RCL_LT" type="FLOAT">
       <short_desc>Loiter Time</short_desc>
@@ -6973,7 +6892,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</short_desc>
       <scope>modules/navigator</scope>
     </parameter>
   </group>
-  <group name="Radio Switches">
+<!--   <group name="Radio Switches">
     <parameter default="0.5" name="RC_ACRO_TH" type="FLOAT">
       <short_desc>Threshold for selecting acro mode</short_desc>
       <long_desc>0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel&gt;th negative : true when channel&lt;th</long_desc>
@@ -7479,7 +7398,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</short_desc>
       <max>1</max>
       <scope>modules/sensors</scope>
     </parameter>
-  </group>
+  </group> -->
   <group name="Return To Land">
     <parameter default="30" name="RTL_DESCEND_ALT" type="FLOAT">
       <short_desc>RTL loiter altitude</short_desc>
@@ -7607,7 +7526,7 @@ to takeoff is reached</short_desc>
       <scope>lib/runway_takeoff</scope>
     </parameter>
   </group>
-  <group name="SD Logging">
+<!--   <group name="SD Logging">
     <parameter default="0" name="SDLOG_DIRS_MAX" type="INT32">
       <short_desc>Maximum number of log directories to keep</short_desc>
       <long_desc>If there are more log directories than this value, the system will delete the oldest directories during startup. In addition, the system will delete old logs if there is not enough free space left. The minimum amount is 300 MB. If this is set to 0, old directories will only be removed if the free space falls below the minimum.</long_desc>
@@ -7649,7 +7568,7 @@ to takeoff is reached</short_desc>
     </parameter>
     <parameter default="2" name="SDLOG_PRIO_BOOST" type="INT32">
       <short_desc>Give logging app higher thread priority to avoid data loss.
-This is used for gathering replay logs for the ekf2 module</short_desc>
+      This is used for gathering replay logs for the ekf2 module</short_desc>
       <long_desc>A value of 0 indicates that the default priority is used. Increasing the parameter in steps of one increases the priority.</long_desc>
       <min>0</min>
       <max>3</max>
@@ -7700,7 +7619,7 @@ This is used for gathering replay logs for the ekf2 module</short_desc>
       <boolean />
       <scope>modules/logger</scope>
     </parameter>
-  </group>
+  </group> -->
   <group name="SITL">
     <parameter default="60" name="SIM_BAT_DRAIN" type="FLOAT">
       <short_desc>Simulator Battery drain interval</short_desc>
@@ -7715,7 +7634,7 @@ This is used for gathering replay logs for the ekf2 module</short_desc>
       <scope>modules/simulator</scope>
     </parameter>
   </group>
-  <group name="Sensor Calibration">
+<!--   <group name="Sensor Calibration">
     <parameter default="1" name="CAL_ACC0_EN" type="INT32">
       <short_desc>Accelerometer 0 enabled</short_desc>
       <boolean />
@@ -8245,8 +8164,8 @@ This is used for gathering replay logs for the ekf2 module</short_desc>
       <long_desc>The offset (zero-reading) in Pascal</long_desc>
       <scope>modules/sensors</scope>
     </parameter>
-  </group>
-  <group name="Sensor Thermal Compensation">
+  </group> -->
+<!--   <group name="Sensor Thermal Compensation">
     <parameter default="0" name="TC_A0_ID" type="INT32">
       <short_desc>ID of Accelerometer that the calibration is for</short_desc>
       <scope>modules/sensors</scope>
@@ -8853,16 +8772,16 @@ This is used for gathering replay logs for the ekf2 module</short_desc>
       <max>1</max>
       <scope>modules/sensors</scope>
     </parameter>
-  </group>
+  </group> -->
   <group name="Sensors">
-    <parameter default="0.2" name="ATT_VIBE_THRESH" type="FLOAT">
+<!--     <parameter default="0.2" name="ATT_VIBE_THRESH" type="FLOAT">
       <short_desc>Threshold (of RMS) to warn about high vibration levels</short_desc>
       <min>0.01</min>
       <max>10</max>
       <decimal>2</decimal>
       <scope>modules/sensors</scope>
-    </parameter>
-    <parameter default="63" name="CAL_MAG_SIDES" type="INT32">
+    </parameter> -->
+<!--     <parameter default="63" name="CAL_MAG_SIDES" type="INT32">
       <short_desc>Bitfield selecting mag sides for calibration</short_desc>
       <long_desc>DETECT_ORIENTATION_TAIL_DOWN = 1 DETECT_ORIENTATION_NOSE_DOWN = 2 DETECT_ORIENTATION_LEFT = 4 DETECT_ORIENTATION_RIGHT = 8 DETECT_ORIENTATION_UPSIDE_DOWN = 16 DETECT_ORIENTATION_RIGHTSIDE_UP = 32</long_desc>
       <min>34</min>
@@ -8873,8 +8792,8 @@ This is used for gathering replay logs for the ekf2 module</short_desc>
         <value code="38">Three side calibration</value>
         <value code="63">Six side calibration</value>
       </values>
-    </parameter>
-    <parameter default="30.0" name="IMU_ACCEL_CUTOFF" type="FLOAT">
+    </parameter> -->
+<!--     <parameter default="30.0" name="IMU_ACCEL_CUTOFF" type="FLOAT">
       <short_desc>Driver level cut frequency for accel</short_desc>
       <long_desc>The cut frequency for the 2nd order butterworth filter on the accel driver. This features is currently supported by the mpu6000 and mpu9250. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.</long_desc>
       <min>5</min>
@@ -8882,8 +8801,8 @@ This is used for gathering replay logs for the ekf2 module</short_desc>
       <unit>Hz</unit>
       <reboot_required>true</reboot_required>
       <scope>modules/sensors</scope>
-    </parameter>
-    <parameter default="30.0" name="IMU_GYRO_CUTOFF" type="FLOAT">
+    </parameter> -->
+<!--     <parameter default="30.0" name="IMU_GYRO_CUTOFF" type="FLOAT">
       <short_desc>Driver level cut frequency for gyro</short_desc>
       <long_desc>The cut frequency for the 2nd order butterworth filter on the gyro driver. This features is currently supported by the mpu6000 and mpu9250. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.</long_desc>
       <min>5</min>
@@ -8891,66 +8810,14 @@ This is used for gathering replay logs for the ekf2 module</short_desc>
       <unit>Hz</unit>
       <reboot_required>true</reboot_required>
       <scope>modules/sensors</scope>
-    </parameter>
-    <parameter default="1013.25" name="SENS_BARO_QNH" type="FLOAT">
+    </parameter> -->
+<!--     <parameter default="1013.25" name="SENS_BARO_QNH" type="FLOAT">
       <short_desc>QNH for barometer</short_desc>
       <min>500</min>
       <max>1500</max>
       <unit>hPa</unit>
       <scope>modules/sensors</scope>
-    </parameter>
-    <parameter default="0" name="SENS_BOARD_ROT" type="INT32">
-      <short_desc>Board rotation</short_desc>
-      <long_desc>This parameter defines the rotation of the FMU board relative to the platform.</long_desc>
-      <reboot_required>true</reboot_required>
-      <scope>modules/sensors</scope>
-      <values>
-        <value code="0">No rotation</value>
-        <value code="1">Yaw 45°</value>
-        <value code="2">Yaw 90°</value>
-        <value code="3">Yaw 135°</value>
-        <value code="4">Yaw 180°</value>
-        <value code="5">Yaw 225°</value>
-        <value code="6">Yaw 270°</value>
-        <value code="7">Yaw 315°</value>
-        <value code="8">Roll 180°</value>
-        <value code="9">Roll 180°, Yaw 45°</value>
-        <value code="10">Roll 180°, Yaw 90°</value>
-        <value code="11">Roll 180°, Yaw 135°</value>
-        <value code="12">Pitch 180°</value>
-        <value code="13">Roll 180°, Yaw 225°</value>
-        <value code="14">Roll 180°, Yaw 270°</value>
-        <value code="15">Roll 180°, Yaw 315°</value>
-        <value code="16">Roll 90°</value>
-        <value code="17">Roll 90°, Yaw 45°</value>
-        <value code="18">Roll 90°, Yaw 90°</value>
-        <value code="19">Roll 90°, Yaw 135°</value>
-        <value code="20">Roll 270°</value>
-        <value code="21">Roll 270°, Yaw 45°</value>
-        <value code="22">Roll 270°, Yaw 90°</value>
-        <value code="23">Roll 270°, Yaw 135°</value>
-        <value code="24">Pitch 90°</value>
-        <value code="25">Pitch 270°</value>
-      </values>
-    </parameter>
-    <parameter default="0.0" name="SENS_BOARD_X_OFF" type="FLOAT">
-      <short_desc>Board rotation X (Roll) offset</short_desc>
-      <long_desc>This parameter defines a rotational offset in degrees around the X (Roll) axis It allows the user to fine tune the board offset in the event of misalignment.</long_desc>
-      <unit>deg</unit>
-      <scope>modules/sensors</scope>
-    </parameter>
-    <parameter default="0.0" name="SENS_BOARD_Y_OFF" type="FLOAT">
-      <short_desc>Board rotation Y (Pitch) offset</short_desc>
-      <long_desc>This parameter defines a rotational offset in degrees around the Y (Pitch) axis. It allows the user to fine tune the board offset in the event of misalignment.</long_desc>
-      <unit>deg</unit>
-      <scope>modules/sensors</scope>
-    </parameter>
-    <parameter default="0.0" name="SENS_BOARD_Z_OFF" type="FLOAT">
-      <short_desc>Board rotation Z (YAW) offset</short_desc>
-      <long_desc>This parameter defines a rotational offset in degrees around the Z (Yaw) axis. It allows the user to fine tune the board offset in the event of misalignment.</long_desc>
-      <unit>deg</unit>
-      <scope>modules/sensors</scope>
-    </parameter>
+    </parameter> -->
     <parameter default="0" name="SENS_EN_LL40LS" type="INT32">
       <short_desc>Lidar-Lite (LL40LS)</short_desc>
       <min>0</min>
@@ -9070,7 +8937,7 @@ This is used for gathering replay logs for the ekf2 module</short_desc>
       <scope>modules/syslink</scope>
     </parameter>
   </group>
-  <group name="System">
+<!--   <group name="System">
     <parameter default="15" name="LED_RGB_MAXBRT" type="INT32">
       <short_desc>RGB Led brightness limit</short_desc>
       <long_desc>Set to 0 to disable, 1 for minimum brightness up to 15 (max)</long_desc>
@@ -9229,7 +9096,7 @@ This is used for gathering replay logs for the ekf2 module</short_desc>
       <reboot_required>true</reboot_required>
       <scope>drivers/px4io</scope>
     </parameter>
-  </group>
+  </group> -->
   <group name="Testing">
     <parameter default="2" name="TEST_1" type="INT32">
       <short_desc>TEST_1</short_desc>
@@ -9743,6 +9610,152 @@ to accelerate forward if necessary</short_desc>
     <parameter default="10.0" name="SEG_TH2V_P" type="FLOAT">
       <short_desc>SEG_TH2V_P</short_desc>
       <scope>examples/segway</scope>
+    </parameter>
+  </group>
+
+  <group name = "GPS Position">
+    <parameter default="0.0" name="EKF2_GPS_POS_X" type="FLOAT">
+      <short_desc>X position of GPS antenna in body frame</short_desc>
+      <unit>m</unit>
+      <decimal>3</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="0.0" name="EKF2_GPS_POS_Y" type="FLOAT">
+      <short_desc>Y position of GPS antenna in body frame</short_desc>
+      <unit>m</unit>
+      <decimal>3</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="0.0" name="EKF2_GPS_POS_Z" type="FLOAT">
+      <short_desc>Z position of GPS antenna in body frame</short_desc>
+      <unit>m</unit>
+      <decimal>3</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="0.0" name="GPS_HDG_MNTOFS" type="FLOAT">
+      <short_desc>dual antenna mount direction offset relative to vehicle forward direction</short_desc>
+      <long_desc>direction is secondary point to primary antenna, anticlockwise is negative, otherwise clockwise is positive</long_desc>
+      <min>-180.0</min>
+      <max>180.0</max>
+      <unit>deg</unit>
+      <decimal>3</decimal>
+      <scope>drivers/gps</scope>
+    </parameter>
+  </group>
+  <group name = "Wheel Speed Position">
+    <parameter default="0.0" name="EKF2_WS_POS_X" type="FLOAT">
+      <short_desc>X position of wheel speed sensor in body frame</short_desc>
+      <unit>m</unit>
+      <decimal>3</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="0.0" name="EKF2_WS_POS_Y" type="FLOAT">
+      <short_desc>Y position of wheel speed sensor in body frame</short_desc>
+      <unit>m</unit>
+      <decimal>3</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="0.0" name="EKF2_WS_POS_Z" type="FLOAT">
+      <short_desc>Z position of wheel speed sensor in body frame</short_desc>
+      <unit>m</unit>
+      <decimal>3</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+  </group>
+  <group name = "IFS Serial">
+    <parameter default="3" name="IFS_MSG_MASK" type="INT32">
+      <short_desc>Integer bitmask controlling ifs interface serial message</short_desc>
+      <long_desc>Set bits to 1 to enable message. Message enabled by the following bit positions 0 : IFGGA 1 : GPGGA 2 : IFLCP 3 : IFDYN 4 : IFRAW 5 :IFVCR</long_desc>
+      <min>0</min>
+      <max>63</max>
+      <scope>drivers/ifs_interface</scope>
+      <bitmask>
+        <bit index="0">IFGGA</bit>
+        <bit index="1">GPGGA</bit>
+        <bit index="2">IFLCP</bit>
+        <bit index="3">IFDYN</bit>
+        <bit index="4">IFRAW</bit>
+        <bit index="5">IFVCR</bit>
+      </bitmask>
+    </parameter>
+    <parameter default="50" name="IFS_OUTRATE_HZ" type="INT32">
+      <short_desc>ifs interface serial output rate, Hz</short_desc>
+      <long_desc>support rate:1Hz,5Hz,10Hz,20Hz,50Hz,100Hz </long_desc>
+      <min>1</min>
+      <max>100</max>
+      <scope>drivers/ifs_interface</scope>
+    </parameter>
+  </group>
+  <group name = "IMU Position">
+    <parameter default="0" name="SENS_BOARD_ROT" type="INT32">
+      <short_desc>Board rotation</short_desc>
+      <long_desc>This parameter defines the rotation of the FMU board relative to the platform.</long_desc>
+      <reboot_required>true</reboot_required>
+      <scope>modules/sensors</scope>
+      <values>
+        <value code="0">No rotation</value>
+        <value code="1">Yaw 45°</value>
+        <value code="2">Yaw 90°</value>
+        <value code="3">Yaw 135°</value>
+        <value code="4">Yaw 180°</value>
+        <value code="5">Yaw 225°</value>
+        <value code="6">Yaw 270°</value>
+        <value code="7">Yaw 315°</value>
+        <value code="8">Roll 180°</value>
+        <value code="9">Roll 180°, Yaw 45°</value>
+        <value code="10">Roll 180°, Yaw 90°</value>
+        <value code="11">Roll 180°, Yaw 135°</value>
+        <value code="12">Pitch 180°</value>
+        <value code="13">Roll 180°, Yaw 225°</value>
+        <value code="14">Roll 180°, Yaw 270°</value>
+        <value code="15">Roll 180°, Yaw 315°</value>
+        <value code="16">Roll 90°</value>
+        <value code="17">Roll 90°, Yaw 45°</value>
+        <value code="18">Roll 90°, Yaw 90°</value>
+        <value code="19">Roll 90°, Yaw 135°</value>
+        <value code="20">Roll 270°</value>
+        <value code="21">Roll 270°, Yaw 45°</value>
+        <value code="22">Roll 270°, Yaw 90°</value>
+        <value code="23">Roll 270°, Yaw 135°</value>
+        <value code="24">Pitch 90°</value>
+        <value code="25">Pitch 270°</value>
+      </values>
+    </parameter>
+    <parameter default="0.0" name="SENS_BOARD_X_OFF" type="FLOAT">
+      <short_desc>IMU Board rotation X (Roll) offset</short_desc>
+      <long_desc>This parameter defines a rotational offset in degrees around the X (Roll) axis It allows the user to fine tune the board offset in the event of misalignment.</long_desc>
+      <unit>deg</unit>
+      <scope>modules/sensors</scope>
+    </parameter>
+    <parameter default="0.0" name="SENS_BOARD_Y_OFF" type="FLOAT">
+      <short_desc>IMU Board rotation Y (Pitch) offset</short_desc>
+      <long_desc>This parameter defines a rotational offset in degrees around the Y (Pitch) axis. It allows the user to fine tune the board offset in the event of misalignment.</long_desc>
+      <unit>deg</unit>
+      <scope>modules/sensors</scope>
+    </parameter>
+    <parameter default="0.0" name="SENS_BOARD_Z_OFF" type="FLOAT">
+      <short_desc>IMU Board rotation Z (YAW) offset</short_desc>
+      <long_desc>This parameter defines a rotational offset in degrees around the Z (Yaw) axis. It allows the user to fine tune the board offset in the event of misalignment.</long_desc>
+      <unit>deg</unit>
+      <scope>modules/sensors</scope>
+    </parameter>
+    <parameter default="0.0" name="EKF2_IMU_POS_X" type="FLOAT">
+      <short_desc>X position of IMU in body frame</short_desc>
+      <unit>m</unit>
+      <decimal>3</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="0.0" name="EKF2_IMU_POS_Y" type="FLOAT">
+      <short_desc>Y position of IMU in body frame</short_desc>
+      <unit>m</unit>
+      <decimal>3</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="0.0" name="EKF2_IMU_POS_Z" type="FLOAT">
+      <short_desc>Z position of IMU in body frame</short_desc>
+      <unit>m</unit>
+      <decimal>3</decimal>
+      <scope>modules/ekf2</scope>
     </parameter>
   </group>
 </parameters>

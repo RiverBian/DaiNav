@@ -519,6 +519,9 @@ void ParameterManager::_setupGroupMap(void)
     foreach (int componentId, _mapParameterName2Variant.keys()) {
         foreach (const QString &name, _mapParameterName2Variant[componentId].keys()) {
             Fact* fact = _mapParameterName2Variant[componentId][name].value<Fact*>();
+            if (fact->group() == "*Default Group") {
+                continue;
+            }
             _mapGroup2ParameterName[componentId][fact->group()] += name;
         }
     }

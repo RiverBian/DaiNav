@@ -103,11 +103,6 @@ Rectangle {
                         buttonText:         qsTr("Log Download")
                         pageSource:         "LogDownloadPage.qml"
                     }
-                    ListElement {
-                        buttonImage:        "/qmlimages/MavlinkConsoleIcon"
-                        buttonText:         qsTr("Ifs Console")
-                        pageSource:         "MavlinkConsolePage.qml"
-                    }
                 }
 
                 Component.onCompleted: itemAt(0).checked = true

@@ -2075,7 +2075,7 @@ void Vehicle::_connectionActive(void)
 
 void Vehicle::_say(const QString& text)
 {
-    _toolbox->audioOutput()->say(text.toLower());
+    // _toolbox->audioOutput()->say(text.toLower());
 }
 
 bool Vehicle::fixedWing(void) const

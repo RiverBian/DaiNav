@@ -161,9 +161,9 @@ MainWindow::MainWindow()
     setCorner(Qt::BottomRightCorner, Qt::BottomDockWidgetArea);
 
     // On Mobile devices, we don't want any main menus at all.
-#ifdef __mobile__
+// #ifdef __mobile__
     menuBar()->setNativeMenuBar(false);
-#endif
+// #endif
 
 #ifdef UNITTEST_BUILD
     QAction* qmlTestAction = new QAction("Test QML palette and controls", NULL);
@@ -240,9 +240,9 @@ MainWindow::MainWindow()
     if (!qgcApp()->runningUnitTests()) {
         _ui.actionStatusBar->setChecked(_showStatusBar);
         showStatusBarCallback(_showStatusBar);
-#ifdef __mobile__
+// #ifdef __mobile__
         menuBar()->hide();
-#endif
+// #endif
         show();
 #ifdef __macos__
         // TODO HACK

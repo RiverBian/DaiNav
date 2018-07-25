@@ -127,8 +127,7 @@ Rectangle {
                 horizontalAlignment:    Text.AlignHCenter
                 wrapMode:               Text.WordWrap
                 font.pointSize:         ScreenTools.mediumFontPointSize
-                text:                   qsTr("%1 does not currently support setup of your vehicle type. ").arg(QGroundControl.appName) +
-                                        "If your vehicle is already configured you can still Fly."
+                text:                   qsTr("IFSnav can update IFS2xxx firmware and set parameters, Please click left buttons.")
 
                 onLinkActivated: Qt.openUrlExternally(link)
             }
@@ -148,8 +147,8 @@ Rectangle {
                 horizontalAlignment:    Text.AlignHCenter
                 wrapMode:               Text.WordWrap
                 font.pointSize:         ScreenTools.largeFontPointSize
-                text:                   qsTr("Vehicle settings and info will display after connecting your vehicle.") +
-                                        (ScreenTools.isMobile ? "" : " Click Firmware on the left to upgrade your vehicle.")
+                text:                   qsTr("IFS2000 settings and info will display after connecting your IFS2000.") +
+                                        (ScreenTools.isMobile ? "" : " Click Firmware on the left to upgrade your IFS2000.")
 
                 onLinkActivated: Qt.openUrlExternally(link)
             }

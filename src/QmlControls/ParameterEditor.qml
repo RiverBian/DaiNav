@@ -55,6 +55,7 @@ QGCView {
             anchors.left:   parent.left
             anchors.right:  parent.right
             spacing:        ScreenTools.defaultFontPixelWidth
+            visible:        false
 
             Timer {
                 id:         clearTimer
@@ -96,7 +97,7 @@ QGCView {
             anchors.bottom: header.bottom
             anchors.right:  parent.right
             text:           qsTr("Tools")
-            visible:        !_searchFilter
+            visible:        false
 
             menu: Menu {
                 MenuItem {
@@ -180,6 +181,7 @@ QGCView {
                             text: qsTr("Component #: %1").arg(componentId.toString())
                             font.family: ScreenTools.demiboldFontFamily
                             anchors.horizontalCenter: parent.horizontalCenter
+                            visible: false
                         }
 
                         ExclusiveGroup { id: groupGroup }

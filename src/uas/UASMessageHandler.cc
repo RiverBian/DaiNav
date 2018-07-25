@@ -99,7 +99,7 @@ void UASMessageHandler::_activeVehicleChanged(Vehicle* vehicle)
         // Connect to the new UAS.
         clearMessages();
         _activeVehicle = vehicle;
-        connect(_activeVehicle->uas(), &UASInterface::textMessageReceived, this, &UASMessageHandler::handleTextMessage);
+        // connect(_activeVehicle->uas(), &UASInterface::textMessageReceived, this, &UASMessageHandler::handleTextMessage);
     }
 }
 
