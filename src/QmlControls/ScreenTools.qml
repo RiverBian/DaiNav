@@ -102,8 +102,8 @@ Item {
 
     /// \private
     function _setBasePointSize(pointSize) {
-        _textMeasure.font.pointSize = pointSize
-        defaultFontPointSize    = pointSize
+        _textMeasure.font.pointSize = 14
+        defaultFontPointSize    = 14
         defaultFontPixelHeight  = Math.round(_textMeasure.fontHeight/2.0)*2
         defaultFontPixelWidth   = Math.round(_textMeasure.fontWidth/2.0)*2
         smallFontPointSize      = defaultFontPointSize  * _screenTools.smallFontPointRatio
