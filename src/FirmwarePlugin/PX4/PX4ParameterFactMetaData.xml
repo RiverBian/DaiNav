@@ -9758,4 +9758,20 @@ to accelerate forward if necessary</short_desc>
       <scope>modules/ekf2</scope>
     </parameter>
   </group>
+  <group name = "GPS Quanlity">
+    <parameter default="1.0" name="EKF2_REQ_EPH" type="FLOAT">
+      <short_desc>Required EPH to use GPS</short_desc>
+      <min>0.1</min>
+      <max>10.0</max>
+      <unit>m</unit>
+      <decimal>1</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="3" name="EKF2_GPS_TYPE_R" type="INT32">
+      <short_desc>Required fix type to use GPS</short_desc>
+      <min>1</min>
+      <max>10</max>
+      <scope>modules/ekf2</scope>
+    </parameter>
+  </group>
 </parameters>
