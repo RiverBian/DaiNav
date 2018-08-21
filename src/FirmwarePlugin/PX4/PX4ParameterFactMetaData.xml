@@ -9774,4 +9774,78 @@ to accelerate forward if necessary</short_desc>
       <scope>modules/ekf2</scope>
     </parameter>
   </group>
+  <group name="EKF2_Params">
+    <parameter default="3.0e-3" name="EKF2_ACC_B_NOISE" type="FLOAT">
+      <short_desc>Process noise for IMU accelerometer bias prediction</short_desc>
+      <min>0.0</min>
+      <max>0.01</max>
+      <unit>m/s**3</unit>
+      <decimal>7</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="3.5e-1" name="EKF2_ACC_NOISE" type="FLOAT">
+      <short_desc>Accelerometer noise for covariance prediction</short_desc>
+      <min>0.01</min>
+      <max>1.0</max>
+      <unit>m/s/s</unit>
+      <decimal>2</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="5.0" name="EKF2_GPS_P_GATE" type="FLOAT">
+      <short_desc>Gate size for GPS horizontal position fusion</short_desc>
+      <long_desc>Sets the number of standard deviations used by the innovation consistency test.</long_desc>
+      <min>1.0</min>
+      <unit>SD</unit>
+      <decimal>1</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="0.5" name="EKF2_GPS_P_NOISE" type="FLOAT">
+      <short_desc>Measurement noise for gps position</short_desc>
+      <min>0.01</min>
+      <max>10.0</max>
+      <unit>m</unit>
+      <decimal>2</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="5.0" name="EKF2_GPS_V_GATE" type="FLOAT">
+      <short_desc>Gate size for GPS velocity fusion</short_desc>
+      <long_desc>Sets the number of standard deviations used by the innovation consistency test.</long_desc>
+      <min>1.0</min>
+      <unit>SD</unit>
+      <decimal>1</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="0.5" name="EKF2_GPS_V_NOISE" type="FLOAT">
+      <short_desc>Measurement noise for gps horizontal velocity</short_desc>
+      <min>0.01</min>
+      <max>5.0</max>
+      <unit>m/s</unit>
+      <decimal>2</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="2.0e-7" name="EKF2_GYR_B_NOISE" type="FLOAT">
+      <short_desc>Process noise for IMU rate gyro bias prediction</short_desc>
+      <min>0.0</min>
+      <max>0.01</max>
+      <unit>rad/s**2</unit>
+      <decimal>7</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="1.0e-2" name="EKF2_GYR_NOISE" type="FLOAT">
+      <short_desc>Rate gyro noise for covariance prediction</short_desc>
+      <min>0.0001</min>
+      <max>0.1</max>
+      <unit>rad/s</unit>
+      <decimal>4</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="5.0" name="EKF2_HDG_GATE" type="FLOAT">
+      <short_desc>Gate size for heading fusion</short_desc>
+      <long_desc>Sets the number of standard deviations used by the innovation consistency test.</long_desc>
+      <min>1.0</min>
+      <unit>SD</unit>
+      <decimal>1</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+  </group>
 </parameters>
