@@ -9633,8 +9633,8 @@ to accelerate forward if necessary</short_desc>
       <scope>modules/ekf2</scope>
     </parameter>
     <parameter default="0.0" name="GPS_HDG_MNTOFS" type="FLOAT">
-      <short_desc>dual antenna mount direction offset relative to vehicle forward direction</short_desc>
-      <long_desc>direction is secondary point to primary antenna, anticlockwise is negative, otherwise clockwise is positive</long_desc>
+      <short_desc>Dual antenna mount direction offset relative to vehicle forward direction</short_desc>
+      <long_desc>Direction is secondary point to primary antenna, anticlockwise is negative, otherwise clockwise is positive</long_desc>
       <min>-180.0</min>
       <max>180.0</max>
       <unit>deg</unit>
@@ -9679,18 +9679,36 @@ to accelerate forward if necessary</short_desc>
       </bitmask>
     </parameter>
     <parameter default="50" name="IFS_OUTRATE_HZ" type="INT32">
-      <short_desc>ifs interface serial output rate, Hz</short_desc>
-      <long_desc>support rate:1Hz,5Hz,10Hz,20Hz,50Hz,100Hz </long_desc>
-      <min>1</min>
-      <max>100</max>
+      <short_desc>IFS serial interface output rate</short_desc>
+      <long_desc>Note: the maximal rate is limited by serial bandwidth, so only one or two messages can be send in IFS_MSG_MASK messages list simultaneously if 50Hz or 100Hz is selected. Please set it cautiously!</long_desc>
       <scope>drivers/ifs_interface</scope>
+      <values>
+        <value code="1">1Hz</value>
+        <value code="5">5Hz</value>
+        <value code="10">10Hz</value>
+        <value code="20">20Hz</value>
+        <value code="50">50Hz</value>
+        <value code="100">100Hz</value>
+      </values>
+    </parameter>
+  </group>
+  <group name = "IFS CAN">
+    <parameter default="0" name="CANIFS_SEND_EN" type="INT32">
+      <short_desc>IFS CAN send process enable control</short_desc>
+      <long_desc>This parameter control the IFS CAN interface send process. 
+        Note:CAN2 enable is only supported on specific hardware type</long_desc>
+      <scope>drivers/ifs_interface</scope>
+      <values>
+        <value code="0">Disabled</value>
+        <value code="1">CAN1 Enable</value>
+        <value code="2">CAN2 Enable</value>
+      </values>
     </parameter>
   </group>
   <group name = "IMU Position">
     <parameter default="0" name="SENS_BOARD_ROT" type="INT32">
       <short_desc>Board rotation</short_desc>
       <long_desc>This parameter defines the rotation of the FMU board relative to the platform.</long_desc>
-      <reboot_required>true</reboot_required>
       <scope>modules/sensors</scope>
       <values>
         <value code="0">No rotation</value>
@@ -9761,6 +9779,7 @@ to accelerate forward if necessary</short_desc>
   <group name = "GPS Quanlity">
     <parameter default="1.0" name="EKF2_REQ_EPH" type="FLOAT">
       <short_desc>Required EPH to use GPS</short_desc>
+      <long_desc>This parameter defines the error of poistion horizontal to use gps data in fusion process.</long_desc>
       <min>0.1</min>
       <max>10.0</max>
       <unit>m</unit>
@@ -9769,6 +9788,7 @@ to accelerate forward if necessary</short_desc>
     </parameter>
     <parameter default="3" name="EKF2_GPS_TYPE_R" type="INT32">
       <short_desc>Required fix type to use GPS</short_desc>
+      <long_desc>0-1: no fix, 2: 2D fix, 3: 3D fix, 4: RTCM code differential, 5: Real-Time Kinematic, float, 6: Real-Time Kinematic, fixed.</long_desc>
       <min>1</min>
       <max>10</max>
       <scope>modules/ekf2</scope>
