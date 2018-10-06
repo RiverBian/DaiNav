@@ -9774,7 +9774,7 @@ to accelerate forward if necessary</short_desc>
       <scope>modules/ekf2</scope>
     </parameter>
   </group>
-  <group name="EKF2_Params">
+<!--   <group name="EKF2 Params">
     <parameter default="3.0e-3" name="EKF2_ACC_B_NOISE" type="FLOAT">
       <short_desc>Process noise for IMU accelerometer bias prediction</short_desc>
       <min>0.0</min>
@@ -9847,5 +9847,5 @@ to accelerate forward if necessary</short_desc>
       <decimal>1</decimal>
       <scope>modules/ekf2</scope>
     </parameter>
-  </group>
+  </group> -->
 </parameters>
