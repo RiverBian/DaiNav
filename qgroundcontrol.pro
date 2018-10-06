@@ -79,9 +79,9 @@ WindowsBuild {
 #
 
 QGC_APP_NAME        = "IFSnav"
-QGC_ORG_NAME        = "QGroundControl.org"
+QGC_ORG_NAME        = "daisch.com"
 QGC_ORG_DOMAIN      = "org.qgroundcontrol"
-QGC_APP_DESCRIPTION = "Open source ground control app provided by QGroundControl dev team"
+QGC_APP_DESCRIPTION = "IFS configuration and navigation application"
 QGC_APP_COPYRIGHT   = "Copyright (C) 2017 QGroundControl Development Team. All rights reserved."
 
 WindowsBuild {
@@ -292,7 +292,7 @@ CustomBuild {
     }
 } else {
     DEFINES += QGC_APPLICATION_NAME=\"\\\"IFSnav\\\"\"
-    DEFINES += QGC_ORG_NAME=\"\\\"QGroundControl.org\\\"\"
+    DEFINES += QGC_ORG_NAME=\"\\\"daisch.com\\\"\"
     DEFINES += QGC_ORG_DOMAIN=\"\\\"org.qgroundcontrol\\\"\"
     RESOURCES += \
         $$PWD/qgroundcontrol.qrc \
