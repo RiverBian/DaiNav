@@ -9868,4 +9868,24 @@ to accelerate forward if necessary</short_desc>
       <scope>modules/ekf2</scope>
     </parameter>
   </group> -->
+  <group name = "Fusion Aid">
+    <parameter default="193" name="EKF2_AID_MASK" type="INT32">
+      <short_desc>Integer bitmask controlling data fusion and aiding methods</short_desc>
+      <long_desc>Set bits in the following positions to enable: 0 : Set to true to use GPS data if available 1 : reserved 2 : reserved 3 : reserved 4 : reserved 5 : reserved 6 : Set to true to use GPS heading and course angle 7: set to true to use vehicle wheel speed data for velocity fusion 8: set to true to use course angle when vehicle is turning</long_desc>
+      <min>0</min>
+      <max>511</max>
+      <scope>modules/ekf2</scope>
+      <bitmask>
+        <bit index="0">use GPS</bit>
+        <bit index="1">reserved</bit>
+        <bit index="2">reserved</bit>
+        <bit index="3">reserved</bit>
+        <bit index="4">reserved</bit>
+        <bit index="5">reserved</bit>
+        <bit index="6">use GPS heading and course angle</bit>
+        <bit index="7">use wheel speed</bit>
+        <bit index="8">use course angle when turning</bit>
+      </bitmask>
+    </parameter>
+  </group>
 </parameters>
