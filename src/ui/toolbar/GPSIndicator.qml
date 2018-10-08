@@ -45,7 +45,7 @@ Item {
 
                 QGCLabel {
                     id:             gpsLabel
-                    text:           (activeVehicle && activeVehicle.gps.count.value >= 0) ? qsTr("GPS Status") : qsTr("GPS Data Unavailable")
+                    text:           (activeVehicle && activeVehicle.gps.count.value >= 0) ? qsTr("Vehicle Status") : qsTr("Vehicle Data Unavailable")
                     font.family:    ScreenTools.demiboldFontFamily
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
@@ -62,12 +62,18 @@ Item {
                     QGCLabel { text: activeVehicle ? activeVehicle.gps.count.valueString : qsTr("N/A", "No data to display") }
                     QGCLabel { text: qsTr("GPS Lock:") }
                     QGCLabel { text: activeVehicle ? activeVehicle.gps.lock.enumStringValue : qsTr("N/A", "No data to display") }
-                    QGCLabel { text: qsTr("HDOP:") }
-                    QGCLabel { text: activeVehicle ? activeVehicle.gps.hdop.valueString : qsTr("--.--", "No data to display") }
-                    QGCLabel { text: qsTr("VDOP:") }
-                    QGCLabel { text: activeVehicle ? activeVehicle.gps.vdop.valueString : qsTr("--.--", "No data to display") }
                     QGCLabel { text: qsTr("Course Over Ground:") }
                     QGCLabel { text: activeVehicle ? activeVehicle.gps.courseOverGround.valueString : qsTr("--.--", "No data to display") }
+                    QGCLabel { text: qsTr("GroundSpeed:") }
+                    QGCLabel { text: activeVehicle ? activeVehicle.groundSpeed.valueString : qsTr("--.--", "No data to display") }
+                    QGCLabel { text: qsTr("Alt:") }
+                    QGCLabel { text: activeVehicle ? activeVehicle.altitudeAMSL.valueString : qsTr("--.--", "No data to display") }
+                    QGCLabel { text: qsTr("Roll:") }
+                    QGCLabel { text: activeVehicle ? activeVehicle.roll.valueString : qsTr("--.--", "No data to display") }
+                    QGCLabel { text: qsTr("Pitch:") }
+                    QGCLabel { text: activeVehicle ? activeVehicle.pitch.valueString : qsTr("--.--", "No data to display") }
+                    QGCLabel { text: qsTr("Heading:") }
+                    QGCLabel { text: activeVehicle ? activeVehicle.heading.valueString : qsTr("--.--", "No data to display") }
                 }
             }
 
@@ -108,7 +114,7 @@ Item {
             id:         hdopValue
             visible:    activeVehicle && !isNaN(activeVehicle.gps.hdop.value)
             color:      qgcPal.buttonText
-            text:       activeVehicle ? activeVehicle.gps.hdop.value.toFixed(1) : ""
+            text:       activeVehicle ? activeVehicle.gps.lock.enumStringValue : ""
         }
     }
     
