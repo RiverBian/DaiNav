@@ -9665,9 +9665,9 @@ to accelerate forward if necessary</short_desc>
   <group name = "IFS Serial">
     <parameter default="3" name="IFS_MSG_MASK" type="INT32">
       <short_desc>Integer bitmask controlling ifs interface serial message</short_desc>
-      <long_desc>Set bits to 1 to enable message. Message enabled by the following bit positions 0 : IFGGA 1 : GPGGA 2 : IFLCP 3 : IFDYN 4 : IFRAW 5 :IFVCR 6 :IFLNST</long_desc>
+      <long_desc>Set bits to 1 to enable message. Message enabled by the following bit positions 0 : IFGGA 1 : GPGGA 2 : IFLCP 3 : IFDYN 4 : IFRAW 5 :IFVCR 6 :IFLNST 7 :GPRMC</long_desc>
       <min>0</min>
-      <max>127</max>
+      <max>255</max>
       <scope>drivers/ifs_interface</scope>
       <bitmask>
         <bit index="0">IFGGA</bit>
@@ -9677,6 +9677,7 @@ to accelerate forward if necessary</short_desc>
         <bit index="4">IFRAW</bit>
         <bit index="5">IFVCR</bit>
         <bit index="6">IFLNST</bit>
+        <bit index="7">GPRMC</bit>
       </bitmask>
     </parameter>
     <parameter default="50" name="IFS_OUTRATE_HZ" type="INT32">
@@ -9690,6 +9691,18 @@ to accelerate forward if necessary</short_desc>
         <value code="20">20Hz</value>
         <value code="50">50Hz</value>
         <value code="100">100Hz</value>
+      </values>
+    </parameter>
+    <parameter default="115200" name="IFS_BAUDRATE" type="INT32">
+      <short_desc>IFS serial interface baud rate, bps</short_desc>
+      <scope>drivers/ifs_interface</scope>
+      <values>
+        <value code="4800">4800</value>
+        <value code="9600">9600</value>
+        <value code="19200">19200</value>
+        <value code="38400">38400</value>
+        <value code="57600">57600</value>
+        <value code="115200">115200</value>
       </values>
     </parameter>
   </group>
