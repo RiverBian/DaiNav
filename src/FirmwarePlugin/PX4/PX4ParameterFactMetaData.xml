@@ -9712,12 +9712,43 @@ to accelerate forward if necessary</short_desc>
       <short_desc>IFS CAN send process enable control</short_desc>
       <long_desc>This parameter control the IFS CAN interface send process. 
         Note:CAN2 enable is only supported on specific hardware type</long_desc>
-      <scope>drivers/ifs_interface</scope>
+      <scope>modules/uavcanifs</scope>
       <values>
         <value code="0">Disabled</value>
         <value code="1">CAN1 Enable</value>
         <value code="2">CAN2 Enable</value>
       </values>
+    </parameter>
+    <parameter default="32767" name="CANIFS_SEND_MASK" type="INT32">
+      <short_desc>Integer bitmask controlling CAN send message</short_desc>
+      <long_desc>Set bits to 1 to enable message. Note:only support 15 frames simultaneously send</long_desc>
+      <min>0</min>
+      <scope>modules/uavcanifs</scope>
+      <bitmask>
+        <bit index="0">0x500</bit>
+        <bit index="1">0x501</bit>
+        <bit index="2">0x502</bit>
+        <bit index="3">0x503</bit>
+        <bit index="4">0x504</bit>
+        <bit index="5">0x505</bit>
+        <bit index="6">0x506</bit>
+        <bit index="7">0x600</bit>
+        <bit index="8">0x601</bit>
+        <bit index="9">0x602</bit>
+        <bit index="10">0x603</bit>
+        <bit index="11">0x604</bit>
+        <bit index="12">0x605</bit>
+        <bit index="13">0x606</bit>
+        <bit index="14">0x607</bit>
+        <bit index="15">0x608</bit>
+        <bit index="16">0x609</bit>
+        <bit index="17">0x60A</bit>
+        <bit index="18">0x60B</bit>
+        <bit index="19">0x60C</bit>
+        <bit index="20">0x60D</bit>
+        <bit index="21">0x60E</bit>
+        <bit index="31">0x510</bit>
+      </bitmask>
     </parameter>
   </group>
   <group name = "IMU Position">
@@ -9888,7 +9919,6 @@ to accelerate forward if necessary</short_desc>
       <short_desc>Integer bitmask controlling data fusion and aiding methods</short_desc>
       <long_desc>Set bits in the following positions to enable: 0 : Set to true to use GPS data if available 1 : reserved 2 : reserved 3 : reserved 4 : reserved 5 : reserved 6 : Set to true to use GPS heading and course angle 7: set to true to use vehicle wheel speed data for velocity fusion 8: set to true to use course angle when vehicle is turning</long_desc>
       <min>0</min>
-      <max>511</max>
       <scope>modules/ekf2</scope>
       <bitmask>
         <bit index="0">use GPS</bit>
