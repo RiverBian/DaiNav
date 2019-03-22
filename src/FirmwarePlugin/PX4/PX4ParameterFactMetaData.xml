@@ -9750,6 +9750,18 @@ to accelerate forward if necessary</short_desc>
         <bit index="31">0x510</bit>
       </bitmask>
     </parameter>
+    <parameter default="100" name="CANIFS_SEND_RATE" type="INT32">
+      <short_desc>IFS CAN send output rate</short_desc>
+      <scope>modules/uavcanifs</scope>
+      <values>
+        <value code="1">1Hz</value>
+        <value code="5">5Hz</value>
+        <value code="10">10Hz</value>
+        <value code="20">20Hz</value>
+        <value code="50">50Hz</value>
+        <value code="100">100Hz</value>
+      </values>
+    </parameter>
   </group>
   <group name = "IMU Position">
     <parameter default="0" name="SENS_BOARD_ROT" type="INT32">
@@ -9930,6 +9942,7 @@ to accelerate forward if necessary</short_desc>
         <bit index="6">use GPS heading and course angle</bit>
         <bit index="7">use wheel speed</bit>
         <bit index="8">use course angle when turning</bit>
+        <bit index="9">use fast attitude alignment</bit>
       </bitmask>
     </parameter>
   </group>
