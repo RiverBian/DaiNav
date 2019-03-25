@@ -9943,6 +9943,7 @@ to accelerate forward if necessary</short_desc>
         <bit index="7">use wheel speed</bit>
         <bit index="8">use course angle when turning</bit>
         <bit index="9">use fast attitude alignment</bit>
+        <bit index="10">use course angle priority higher than dual antenna heading</bit>
       </bitmask>
     </parameter>
   </group>
