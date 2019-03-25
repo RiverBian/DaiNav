@@ -147,8 +147,8 @@ Rectangle {
                 horizontalAlignment:    Text.AlignHCenter
                 wrapMode:               Text.WordWrap
                 font.pointSize:         ScreenTools.largeFontPointSize
-                text:                   qsTr("IFS2000 settings and info will display after connecting your IFS2000.") +
-                                        (ScreenTools.isMobile ? "" : " Click Firmware on the left to upgrade your IFS2000.")
+                text:                   qsTr("IFS/MFS settings and info will display after connecting your IFS/MFS.") +
+                                        (ScreenTools.isMobile ? "" : " Click Firmware on the left to upgrade your IFS/MFS.")
 
                 onLinkActivated: Qt.openUrlExternally(link)
             }
@@ -211,7 +211,7 @@ Rectangle {
             QGCLabel {
                 anchors.left:           parent.left
                 anchors.right:          parent.right
-                text:                   qsTr("IFS2000 Setup")
+                text:                   qsTr("IFS/MFS Setup")
                 wrapMode:               Text.WordWrap
                 horizontalAlignment:    Text.AlignHCenter
                 visible:                !ScreenTools.isShortScreen

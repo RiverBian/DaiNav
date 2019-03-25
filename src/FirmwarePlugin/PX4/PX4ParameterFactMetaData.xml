@@ -9707,6 +9707,49 @@ to accelerate forward if necessary</short_desc>
       </values>
     </parameter>
   </group>
+  <group name = "MFS Serial">
+    <parameter default="64" name="MFSS_MSG_MASK" type="INT32">
+      <short_desc>Integer bitmask controlling mfs interface serial message</short_desc>
+      <long_desc>Set bits to 1 to enable message. Message enabled by the following bit positions 0:IFGGA 1:GPGGA 2:IFLCP 3:IFDYN 4:IFRAW 5:GPFPD 6:MFDBG</long_desc>
+      <min>0</min>
+      <max>127</max>
+      <scope>drivers/mfs_serial</scope>
+      <bitmask>
+        <bit index="0">IFGGA</bit>
+        <bit index="1">GPGGA</bit>
+        <bit index="2">IFLCP</bit>
+        <bit index="3">IFDYN</bit>
+        <bit index="4">IFRAW</bit>
+        <bit index="5">GPFPD</bit>
+        <bit index="6">MFDBG</bit>
+      </bitmask>
+    </parameter>
+    <parameter default="20" name="MFSS_OUT_RATE" type="INT32">
+      <short_desc>MFS serial output rate</short_desc>
+      <long_desc>Note: the maximal rate is limited by serial bandwidth, so only one or two messages can be send in MFSS_MSG_MASK messages list simultaneously if 50Hz or 100Hz is selected. Please set it cautiously!</long_desc>
+      <scope>drivers/mfs_serial</scope>
+      <values>
+        <value code="1">1Hz</value>
+        <value code="5">5Hz</value>
+        <value code="10">10Hz</value>
+        <value code="20">20Hz</value>
+        <value code="50">50Hz</value>
+        <value code="100">100Hz</value>
+      </values>
+    </parameter>
+    <parameter default="115200" name="MFSS_BAUDRATE" type="INT32">
+      <short_desc>MFS serial baud rate, bps</short_desc>
+      <scope>drivers/mfs_serial</scope>
+      <values>
+        <value code="4800">4800</value>
+        <value code="9600">9600</value>
+        <value code="19200">19200</value>
+        <value code="38400">38400</value>
+        <value code="57600">57600</value>
+        <value code="115200">115200</value>
+      </values>
+    </parameter>
+  </group>
   <group name = "IFS CAN">
     <parameter default="0" name="CANIFS_SEND_EN" type="INT32">
       <short_desc>IFS CAN send process enable control</short_desc>
@@ -9753,6 +9796,54 @@ to accelerate forward if necessary</short_desc>
     <parameter default="100" name="CANIFS_SEND_RATE" type="INT32">
       <short_desc>IFS CAN send output rate</short_desc>
       <scope>modules/uavcanifs</scope>
+      <values>
+        <value code="1">1Hz</value>
+        <value code="5">5Hz</value>
+        <value code="10">10Hz</value>
+        <value code="20">20Hz</value>
+        <value code="50">50Hz</value>
+        <value code="100">100Hz</value>
+      </values>
+    </parameter>
+  </group>
+  <group name = "MFSCAN">
+    <parameter default="0" name="MFSCAN_SEND_EN" type="INT32">
+      <short_desc>MFS CAN send process enable control</short_desc>
+      <long_desc>This parameter control the MFS CAN interface send process. </long_desc>
+      <scope>modules/mfscan</scope>
+      <values>
+        <value code="0">Disabled</value>
+        <value code="1">CAN send Enable</value>
+      </values>
+    </parameter>
+    <parameter default="0" name="MFSCAN_SEND_MASK" type="INT32">
+      <short_desc>Integer bitmask controlling CAN send message</short_desc>
+      <long_desc>Set bits to 1 to enable message. Note:only support 15 frames simultaneously send</long_desc>
+      <min>0</min>
+      <scope>modules/mfscan</scope>
+      <bitmask>
+        <bit index="0">0x504</bit>
+        <bit index="1">0x505</bit>
+        <bit index="2">0x601</bit>
+        <bit index="3">0x602</bit>
+        <bit index="4">0x603</bit>
+        <bit index="5">0x604</bit>
+        <bit index="6">0x605</bit>
+        <bit index="7">0x606</bit>
+        <bit index="8">0x607</bit>
+        <bit index="9">0x608</bit>
+        <bit index="10">0x609</bit>
+        <bit index="11">0x60A</bit>
+        <bit index="12">0x60B</bit>
+        <bit index="13">0x60C</bit>
+        <bit index="14">0x60D</bit>
+        <bit index="15">0x60E</bit>
+        <bit index="16">0x620</bit>
+      </bitmask>
+    </parameter>
+    <parameter default="20" name="MFSCAN_SEND_RATE" type="INT32">
+      <short_desc>MFS CAN send output rate</short_desc>
+      <scope>modules/mfscan</scope>
       <values>
         <value code="1">1Hz</value>
         <value code="5">5Hz</value>
@@ -9838,10 +9929,18 @@ to accelerate forward if necessary</short_desc>
     <parameter default="1.0" name="EKF2_REQ_EPH" type="FLOAT">
       <short_desc>Required EPH to use GPS</short_desc>
       <long_desc>This parameter defines the error of poistion horizontal to use gps data in fusion process.</long_desc>
-      <min>0.1</min>
+      <min>0.01</min>
       <max>10.0</max>
       <unit>m</unit>
       <decimal>1</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="0.28" name="EKF2_REQ_SACC" type="FLOAT">
+      <short_desc>Required speed accuracy to use GPS</short_desc>
+      <min>0.1</min>
+      <max>5.0</max>
+      <unit>m/s</unit>
+      <decimal>2</decimal>
       <scope>modules/ekf2</scope>
     </parameter>
     <parameter default="3" name="EKF2_GPS_TYPE_R" type="INT32">
@@ -9927,7 +10026,7 @@ to accelerate forward if necessary</short_desc>
     </parameter>
   </group> -->
   <group name = "Fusion Aid">
-    <parameter default="193" name="EKF2_AID_MASK" type="INT32">
+    <parameter default="1217" name="EKF2_AID_MASK" type="INT32">
       <short_desc>Integer bitmask controlling data fusion and aiding methods</short_desc>
       <long_desc>Set bits in the following positions to enable: 0 : Set to true to use GPS data if available 1 : reserved 2 : reserved 3 : reserved 4 : reserved 5 : reserved 6 : Set to true to use GPS heading and course angle 7: set to true to use vehicle wheel speed data for velocity fusion 8: set to true to use course angle when vehicle is turning</long_desc>
       <min>0</min>

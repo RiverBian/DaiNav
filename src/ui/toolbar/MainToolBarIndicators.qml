@@ -61,7 +61,7 @@ Item {
     QGCLabel {
         id:                     waitForVehicle
         anchors.verticalCenter: parent.verticalCenter
-        text:                   qsTr("Waiting For IFS2000 Connection")
+        text:                   qsTr("Waiting For IFS/MFS Connection")
         font.pointSize:         ScreenTools.mediumFontPointSize
         font.family:            ScreenTools.demiboldFontFamily
         color:                  qgcPal.colorRed

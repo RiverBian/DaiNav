@@ -24,7 +24,7 @@ AnalyzePage {
     id:              mavlinkConsolePage
     pageComponent:   pageComponent
     pageName:        qsTr("Ifs Console")
-    pageDescription: qsTr("Ifs Console provides a connection to the IFS2000's system shell.")
+    pageDescription: qsTr("Ifs Console provides a connection to the IFS/MFS's system shell.")
 
     property bool loaded: false
 
