@@ -9667,7 +9667,7 @@ to accelerate forward if necessary</short_desc>
       <short_desc>Integer bitmask controlling ifs interface serial message</short_desc>
       <long_desc>Set bits to 1 to enable message. Message enabled by the following bit positions 0:IFGGA 1:GPGGA 2:IFLCP 3:IFDYN 4:IFRAW 5:IFVCR 6:IFLNST 7:GPRMC 8:GPFPD</long_desc>
       <min>0</min>
-      <max>511</max>
+      <!-- <max>511</max> -->
       <scope>drivers/ifs_interface</scope>
       <bitmask>
         <bit index="0">IFGGA</bit>
@@ -9679,6 +9679,7 @@ to accelerate forward if necessary</short_desc>
         <bit index="6">IFLNST</bit>
         <bit index="7">GPRMC</bit>
         <bit index="8">GPFPD</bit>
+        <bit index="20">APOLLO</bit>
       </bitmask>
     </parameter>
     <parameter default="50" name="IFS_OUTRATE_HZ" type="INT32">
@@ -9704,6 +9705,9 @@ to accelerate forward if necessary</short_desc>
         <value code="38400">38400</value>
         <value code="57600">57600</value>
         <value code="115200">115200</value>
+        <value code="230400">230400</value>
+        <value code="460800">460800</value>
+        <value code="921600">921600</value>
       </values>
     </parameter>
   </group>
