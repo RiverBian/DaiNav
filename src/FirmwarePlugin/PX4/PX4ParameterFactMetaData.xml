@@ -9954,6 +9954,21 @@ to accelerate forward if necessary</short_desc>
       <max>10</max>
       <scope>modules/ekf2</scope>
     </parameter>
+    <parameter default="3" name="EKF2_GPS_INIT_R" type="INT32">
+      <short_desc>Required fix type to use GPS when initialization</short_desc>
+      <long_desc>0-1: no fix, 2: 2D fix, 3: 3D fix, 4: RTCM code differential, 5: Real-Time Kinematic, float, 6: Real-Time Kinematic, fixed.</long_desc>
+      <min>1</min>
+      <max>10</max>
+      <scope>modules/ekf2</scope>
+    </parameter>
+    <parameter default="0.5" name="EKF2_GPS_P_NOISE" type="FLOAT">
+      <short_desc>Measurement noise for gps position</short_desc>
+      <min>0.01</min>
+      <max>10.0</max>
+      <unit>m</unit>
+      <decimal>2</decimal>
+      <scope>modules/ekf2</scope>
+    </parameter>
   </group>
 <!--   <group name="EKF2 Params">
     <parameter default="3.0e-3" name="EKF2_ACC_B_NOISE" type="FLOAT">
