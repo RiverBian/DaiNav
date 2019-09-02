@@ -9679,6 +9679,7 @@ to accelerate forward if necessary</short_desc>
         <bit index="6">IFLNST</bit>
         <bit index="7">GPRMC</bit>
         <bit index="8">GPFPD</bit>
+        <bit index="15">BIN</bit>
         <bit index="20">APOLLO</bit>
       </bitmask>
     </parameter>
