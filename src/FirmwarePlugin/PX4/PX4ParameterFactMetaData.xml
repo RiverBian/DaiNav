@@ -7526,16 +7526,16 @@ to takeoff is reached</short_desc>
       <scope>lib/runway_takeoff</scope>
     </parameter>
   </group>
-<!--   <group name="SD Logging">
+  <group name="SD Logging">
     <parameter default="0" name="SDLOG_DIRS_MAX" type="INT32">
       <short_desc>Maximum number of log directories to keep</short_desc>
-      <long_desc>If there are more log directories than this value, the system will delete the oldest directories during startup. In addition, the system will delete old logs if there is not enough free space left. The minimum amount is 300 MB. If this is set to 0, old directories will only be removed if the free space falls below the minimum.</long_desc>
+      <long_desc>If there are more log directories than this value, the system will delete the oldest directories during startup. In addition, the system will delete old logs if there is not enough free space left. The each log directory is 50 MB.</long_desc>
       <min>0</min>
-      <max>1000</max>
+      <max>150</max>
       <reboot_required>true</reboot_required>
       <scope>modules/logger</scope>
     </parameter>
-    <parameter default="-1" name="SDLOG_EXT" type="INT32">
+    <!-- <parameter default="-1" name="SDLOG_EXT" type="INT32">
       <short_desc>Extended logging mode</short_desc>
       <long_desc>A value of -1 indicates the command line argument should be obeyed. A value of 0 disables extended logging mode, a value of 1 enables it. This parameter is only read out before logging starts (which commonly is before arming).</long_desc>
       <min>-1</min>
@@ -7618,8 +7618,8 @@ to takeoff is reached</short_desc>
       <long_desc>If set to 1, add an ID to the log, which uniquely identifies the vehicle</long_desc>
       <boolean />
       <scope>modules/logger</scope>
-    </parameter>
-  </group> -->
+    </parameter> -->
+  </group>
   <group name="SITL">
     <parameter default="60" name="SIM_BAT_DRAIN" type="FLOAT">
       <short_desc>Simulator Battery drain interval</short_desc>
